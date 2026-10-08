@@ -74,7 +74,13 @@ if __name__ == '__main__':
     t = threading.Thread(target=run_telegram_client, daemon=True)
     t.start()
     
-    app.run(debug=False, port=5000, use_reloader=False)
+    import os
+
+port = int(os.environ.get("PORT", 5000))
+app.run(host='0.0.0.0', debug=False, port=port, use_reloader=False)
+ 
+ 
+    
 
 
 
